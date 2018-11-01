@@ -55,4 +55,5 @@ Mkfile.old
 dkms.conf
 
 *.hconfig
-*/dist/
+MfD/firmware/MfD.X/dist/
+MfD/firmware/MfD.X/nbproject/Package-default.bash
