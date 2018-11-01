@@ -2,13 +2,13 @@
 /** Descriptive File Name
 
   @Company
- Rosemann GmbH
+    Rosemann
 
   @File Name
- adc.c
+    adc.c
 
   @Summary
- ADC implementation.
+    ADC implementation.
 
   @Description
  There are 15 ADC Channel with the following configuration.
@@ -38,6 +38,7 @@
 /* ************************************************************************** */
 /* ************************************************************************** */
 #include "adc.h"
+#include "app.h"
 #include "driver/adc/drv_adc_static.h"
 
 /* ************************************************************************** */
@@ -95,22 +96,22 @@ void ADC_Task()
             ADC_Read_3V3();
             
             /* Read Temperature Sensors */
-            ADC_Read_TS_Temperature(ADC_TS1_idx);
-            ADC_Read_TS_Temperature(ADC_TS2_idx);
-            ADC_Read_TS_Temperature(ADC_TS3_idx);
-            ADC_Read_TS_Temperature(ADC_TS4_idx);
+            ADC_Read_TS(ADC_TS1_idx);
+            ADC_Read_TS(ADC_TS2_idx);
+            ADC_Read_TS(ADC_TS3_idx);
+            ADC_Read_TS(ADC_TS4_idx);
             
             /* Read Gyro */
             ADC_Read_Gyro();
             
             /* Read Air Temperature Sensors */
-            ADC_Read_AS_Temperature(ADC_AS1_idx);
-            ADC_Read_AS_Temperature(ADC_AS2_idx);
-            ADC_Read_AS_Temperature(ADC_AS3_idx);
+            ADC_Read_ATS(ADC_AS1_idx);
+            ADC_Read_ATS(ADC_AS2_idx);
+            ADC_Read_ATS(ADC_AS3_idx);
             
             /* Read Pressure Sensors */
-            ADC_Read_PS_Press(ADC_PS1_idx);
-            ADC_Read_PS_Press(ADC_PS2_idx);
+            ADC_Read_PS(ADC_PS1_idx);
+            ADC_Read_PS(ADC_PS2_idx);
             
             break;
         }
@@ -130,7 +131,7 @@ void ADC_Task()
 /* ************************************************************************** */
 // Section: Functions                                                         */
 /* ************************************************************************** */
-double ADC_Read_TS_Temperature(uint8_t bufindex)
+double ADC_Read_TS(uint8_t bufindex)
 {
     static double res1 = 100;   //100ohm
     
@@ -239,7 +240,7 @@ void ADC_Read_Gyro(void)
 }
 
 
-double ADC_Read_AS_Temperature(uint8_t bufindex)
+double ADC_Read_ATS(uint8_t bufindex)
 {
     static double res1 = 1000;  //1kohm
      
@@ -333,7 +334,7 @@ double ADC_Read_AS_Resistor(uint8_t bufindex)
     return adcData.d_res2;
 }
 
-double ADC_Read_PS_Press(uint8_t bufindex)
+double ADC_Read_PS(uint8_t bufindex)
 {
     /* Start ADC */
     DRV_ADC_Start();

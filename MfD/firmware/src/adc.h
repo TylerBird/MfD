@@ -2,13 +2,13 @@
 /** Descriptive File Name
 
   @Company
- Rosemann GmbH
+    Rosemann
 
   @File Name
- adc.h
+    adc.h
 
   @Summary
- ADC header.
+    ADC header.
 
   @Description
  There are 15 ADC Channel with the following configuration.
@@ -119,18 +119,18 @@ void ADC_Init(void);
 void ADC_Task(void);
 
 /* Temperature Sensor - Oil, Water, etc. */
-double ADC_Read_TS_Temperature(uint8_t);
+double ADC_Read_TS(uint8_t);
 double ADC_Read_TS_Resistor(uint8_t);
 
 /* Accelormeter */
 void ADC_Read_Gyro(void);
 
 /* Air Temperature */
-double ADC_Read_AS_Temperature(uint8_t);
+double ADC_Read_ATS(uint8_t);
 double ADC_Read_AS_Resistor(uint8_t);
 
 /* Pressure Sensor */
-double ADC_Read_PS_Press(uint8_t);
+double ADC_Read_PS(uint8_t);
 double ADC_Read_PS_Voltage(uint8_t);
 
 /* Manifold pressure Sensor */

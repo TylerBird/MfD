@@ -2,7 +2,7 @@
   MPLAB Harmony Application Source File
   
   Company:
-    Microchip Technology Inc.
+    Rosemann
   
   File Name:
     app.c

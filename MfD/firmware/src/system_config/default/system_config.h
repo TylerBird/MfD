@@ -102,7 +102,7 @@ extern "C" {
 #define SYS_PORT_A_CNPD         0x0000
 #define SYS_PORT_A_CNEN         0x0000
 
-#define SYS_PORT_B_ANSEL        0x8BFF
+#define SYS_PORT_B_ANSEL        0x8B3F
 #define SYS_PORT_B_TRIS         0xFFFE
 #define SYS_PORT_B_LAT          0x0000
 #define SYS_PORT_B_ODC          0x0000
@@ -118,7 +118,7 @@ extern "C" {
 #define SYS_PORT_C_CNPD         0x0000
 #define SYS_PORT_C_CNEN         0x0000
 
-#define SYS_PORT_D_ANSEL        0xF7F8
+#define SYS_PORT_D_ANSEL        0xC1C0
 #define SYS_PORT_D_TRIS         0xFFFA
 #define SYS_PORT_D_LAT          0x0000
 #define SYS_PORT_D_ODC          0x0000
@@ -126,7 +126,7 @@ extern "C" {
 #define SYS_PORT_D_CNPD         0x0000
 #define SYS_PORT_D_CNEN         0x0000
 
-#define SYS_PORT_E_ANSEL        0xFFE2
+#define SYS_PORT_E_ANSEL        0xFFE0
 #define SYS_PORT_E_TRIS         0xFFFE
 #define SYS_PORT_E_LAT          0x0000
 #define SYS_PORT_E_ODC          0x0000
@@ -134,7 +134,7 @@ extern "C" {
 #define SYS_PORT_E_CNPD         0x0000
 #define SYS_PORT_E_CNEN         0x0000
 
-#define SYS_PORT_F_ANSEL        0xFFDF
+#define SYS_PORT_F_ANSEL        0xFEC0
 #define SYS_PORT_F_TRIS         0xFFDF
 #define SYS_PORT_F_LAT          0x0000
 #define SYS_PORT_F_ODC          0x0000
@@ -142,7 +142,7 @@ extern "C" {
 #define SYS_PORT_F_CNPD         0x0000
 #define SYS_PORT_F_CNEN         0x0000
 
-#define SYS_PORT_G_ANSEL        0xFFBC
+#define SYS_PORT_G_ANSEL        0x8FBC
 #define SYS_PORT_G_TRIS         0xFFFF
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
@@ -252,7 +252,7 @@ extern "C" {
 #define DRV_USART_CLIENTS_NUMBER                    1
 #define DRV_USART_INSTANCES_NUMBER                  1
 
-#define DRV_USART_PERIPHERAL_ID_IDX0                USART_ID_1
+#define DRV_USART_PERIPHERAL_ID_IDX0                USART_ID_2
 #define DRV_USART_OPER_MODE_IDX0                    DRV_USART_OPERATION_MODE_NORMAL
 #define DRV_USART_OPER_MODE_DATA_IDX0               
 #define DRV_USART_INIT_FLAG_WAKE_ON_START_IDX0      false
@@ -260,20 +260,20 @@ extern "C" {
 #define DRV_USART_INIT_FLAG_STOP_IN_IDLE_IDX0       false
 #define DRV_USART_INIT_FLAGS_IDX0                   0
 #define DRV_USART_BRG_CLOCK_IDX0                    100000000
-#define DRV_USART_BAUD_RATE_IDX0                    9600
+#define DRV_USART_BAUD_RATE_IDX0                    15200
 #define DRV_USART_LINE_CNTRL_IDX0                   DRV_USART_LINE_CONTROL_8NONE1
 #define DRV_USART_HANDSHAKE_MODE_IDX0               DRV_USART_HANDSHAKE_NONE
 #define DRV_USART_LINES_ENABLE_IDX0                 USART_ENABLE_TX_RX_USED
-#define DRV_USART_XMIT_INT_SRC_IDX0                 INT_SOURCE_USART_1_TRANSMIT
-#define DRV_USART_RCV_INT_SRC_IDX0                  INT_SOURCE_USART_1_RECEIVE
-#define DRV_USART_ERR_INT_SRC_IDX0                  INT_SOURCE_USART_1_ERROR
-#define DRV_USART_XMIT_INT_VECTOR_IDX0              INT_VECTOR_UART1_TX
+#define DRV_USART_XMIT_INT_SRC_IDX0                 INT_SOURCE_USART_2_TRANSMIT
+#define DRV_USART_RCV_INT_SRC_IDX0                  INT_SOURCE_USART_2_RECEIVE
+#define DRV_USART_ERR_INT_SRC_IDX0                  INT_SOURCE_USART_2_ERROR
+#define DRV_USART_XMIT_INT_VECTOR_IDX0              INT_VECTOR_UART2_TX
 #define DRV_USART_XMIT_INT_PRIORITY_IDX0            INT_PRIORITY_LEVEL1
 #define DRV_USART_XMIT_INT_SUB_PRIORITY_IDX0        INT_SUBPRIORITY_LEVEL0
-#define DRV_USART_RCV_INT_VECTOR_IDX0               INT_VECTOR_UART1_RX
+#define DRV_USART_RCV_INT_VECTOR_IDX0               INT_VECTOR_UART2_RX
 #define DRV_USART_RCV_INT_PRIORITY_IDX0             INT_PRIORITY_LEVEL1
 #define DRV_USART_RCV_INT_SUB_PRIORITY_IDX0         INT_SUBPRIORITY_LEVEL0
-#define DRV_USART_ERR_INT_VECTOR_IDX0               INT_VECTOR_UART1_FAULT
+#define DRV_USART_ERR_INT_VECTOR_IDX0               INT_VECTOR_UART2_FAULT
 #define DRV_USART_ERR_INT_PRIORITY_IDX0             INT_PRIORITY_LEVEL1
 #define DRV_USART_ERR_INT_SUB_PRIORITY_IDX0         INT_SUBPRIORITY_LEVEL0
 

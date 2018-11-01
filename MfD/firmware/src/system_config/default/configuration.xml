@@ -166,7 +166,7 @@
       <Template dnOrder="0">
         <Name dnOrder="0">sys_ports_static.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/ports/src</Path>
-        <Checksum dnOrder="2">AAB1A66510947E7C61576DC5C24A03E4</Checksum>
+        <Checksum dnOrder="2">1F3A5A7C960BA024E9D95520402313FF</Checksum>
       </Template>
       <Template dnOrder="1">
         <Name dnOrder="0">sys_devcon_cache.h</Name>
@@ -216,7 +216,7 @@
       <Template dnOrder="10">
         <Name dnOrder="0">system_interrupt.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">B2499F63B79770A163A489AFCDE99CFB</Checksum>
+        <Checksum dnOrder="2">16F2A265AA326680D9168AE9EC0C8DAF</Checksum>
       </Template>
       <Template dnOrder="11">
         <Name dnOrder="0">drv_spi_api.c</Name>
@@ -226,7 +226,8 @@
       <Template dnOrder="12">
         <Name dnOrder="0">system_init.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">1CB1BD38B77711F3B8E5B0960BD261CC</Checksum>
+        <Checksum dnOrder="2">8A7C6DBE174197E808AAAE0148110844</Checksum>
+        <ProjectFileChecksum dnOrder="3">774843379429C5914DBEDC4C5154CBE8</ProjectFileChecksum>
       </Template>
       <Template dnOrder="13">
         <Name dnOrder="0">main.c</Name>
@@ -269,7 +270,8 @@
       <Template dnOrder="21">
         <Name dnOrder="0">system_config.h</Name>
         <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">4BB5302F9519D345377820B6EBA550DE</Checksum>
+        <Checksum dnOrder="2">3A61FA1ACE3E26C5AB6ED684847BD96A</Checksum>
+        <ProjectFileChecksum dnOrder="3">50B6AB18C1272C317EFBC595FD5082E2</ProjectFileChecksum>
       </Template>
       <Template dnOrder="22">
         <Name dnOrder="0">app.h</Name>
