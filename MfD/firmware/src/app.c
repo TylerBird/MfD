@@ -48,60 +48,24 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 // *****************************************************************************
-// *****************************************************************************
 // Section: Included Files 
 // *****************************************************************************
-// *****************************************************************************
-
 #include "app.h"
 
-// *****************************************************************************
+#include "adc.h"
+//#include "can.h"
+//#include "ic.h"
+//#include "spi.h"
+//#include "usb.h"
+//#include "bsp_config.h"
+
 // *****************************************************************************
 // Section: Global Data Definitions
 // *****************************************************************************
-// *****************************************************************************
-
-// *****************************************************************************
-/* Application Data
-
-  Summary:
-    Holds application data
-
-  Description:
-    This structure holds the application's data.
-
-  Remarks:
-    This structure should be initialized by the APP_Initialize function.
-    
-    Application strings and buffers are be defined outside this structure.
-*/
-
 APP_DATA appData;
 
 // *****************************************************************************
-// *****************************************************************************
-// Section: Application Callback Functions
-// *****************************************************************************
-// *****************************************************************************
-
-/* TODO:  Add any necessary callback functions.
-*/
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Application Local Functions
-// *****************************************************************************
-// *****************************************************************************
-
-
-/* TODO:  Add any necessary local functions.
-*/
-
-
-// *****************************************************************************
-// *****************************************************************************
 // Section: Application Initialization and State Machine Functions
-// *****************************************************************************
 // *****************************************************************************
 
 /*******************************************************************************
@@ -111,19 +75,18 @@ APP_DATA appData;
   Remarks:
     See prototype in app.h.
  */
-
 void APP_Initialize ( void )
 {
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
-
     
     /* TODO: Initialize your application's state machine and other
      * parameters.
      */
 }
 
-
+int i = 0;
+int j = 0;
 /******************************************************************************
   Function:
     void APP_Tasks ( void )
@@ -131,36 +94,79 @@ void APP_Initialize ( void )
   Remarks:
     See prototype in app.h.
  */
-
 void APP_Tasks ( void )
 {
-
     /* Check the application's current state. */
     switch ( appData.state )
     {
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            bool appInitialized = true;
-       
-        
-            if (appInitialized)
-            {
+			printf("%c%s%c%s", 27, "[2J", 27,"[H"); //clearscreen!!!
+            printf("######################################\n");
+            printf("####                              ####\n");
+            printf("####          M  F  D  yo         ####\n");
+            printf("####                              ####\n");
+            printf("######################################\r\n");
+            printf("Version \t%d.%d\n", (uint8_t)VERSION, ((uint16_t)(VERSION * 10)) % 10);
+            printf("Build date \t%s - %s\n", __DATE__, __TIME__);
+            printf("APP: initialization started | ");
+			
+            /* Programming done LED */
+            OnBoardLED_2On();
             
-                appData.state = APP_STATE_SERVICE_TASKS;
-            }
+            /* Init all components */
+            ADC_Init();
+            //IC_Init();
+//            CAN_Init();
+//            SPI_TempSen_Init();
+//            SPI_KType_Init();
+//            USB_Initialize();
+            
+            /* Set or Reset Relais */
+//            appData.b_relais1_state = BSP_nRelais_En(BSP_Relais_nGate1, false);
+//            appData.b_relais2_state = BSP_nRelais_En(BSP_Relais_nGate2, false);
+//            appData.b_relais3_state = BSP_nRelais_En(BSP_Relais_nGate3, false);
+            
+            /* swap state */
+            appData.state = APP_STATE_SERVICE_TASKS;
             break;
         }
 
         case APP_STATE_SERVICE_TASKS:
         {
-        
+            /* Play USB Task */
+//            USB_Task();
+            //printf("USB task finished |");
+            
+            /* Play ADC Task */
+            if (i > 500000)
+            {
+                /* add tasks */
+                ADC_Task();
+                //CAN_Task();
+//                SPI_KType_Task();
+//                SPI_TempSen_Task();
+                //IC_Task();
+                                
+                /* Control the print out on uart */
+                if (j !=0 )
+                {
+                    printf("\n%i: ", j);
+                }
+                j++;
+                
+                /* Toggle LED for check program is running */
+                OnBoardLED_2Toggle();
+                
+                /* Reset counter variable */
+                i=0;
+            }
+            i++;
+            
             break;
         }
-
-        /* TODO: implement your application state machine.*/
         
-
         /* The default state should never be executed. */
         default:
         {
@@ -169,8 +175,6 @@ void APP_Tasks ( void )
         }
     }
 }
-
- 
 
 /*******************************************************************************
  End of File

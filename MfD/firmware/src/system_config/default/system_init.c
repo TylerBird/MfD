@@ -236,9 +236,13 @@ void SYS_Initialize ( void* data )
     SYS_DEVCON_PerformanceConfig(SYS_CLK_SystemFrequencyGet());
 
     /* Board Support Package Initialization */
-    BSP_Initialize();        
+//    BSP_Initialize();        
 
     /* Initialize Drivers */
+
+    /* Initialize ADC */
+    DRV_ADC_Initialize();
+
     /* Initialize CAN Driver 0 */
     DRV_CAN0_Initialize();
 

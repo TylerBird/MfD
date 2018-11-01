@@ -169,111 +169,121 @@
         <Checksum dnOrder="2">AAB1A66510947E7C61576DC5C24A03E4</Checksum>
       </Template>
       <Template dnOrder="1">
-        <Name dnOrder="0">system_init.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">68EDCF9FF24528666E31BC9F47E59BDB</Checksum>
-      </Template>
-      <Template dnOrder="2">
         <Name dnOrder="0">sys_devcon_cache.h</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
         <Checksum dnOrder="2">5EB0485AC07A8B25665195B960AFBE5B</Checksum>
       </Template>
-      <Template dnOrder="3">
-        <Name dnOrder="0">main.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app</Path>
-      </Template>
-      <Template dnOrder="4">
+      <Template dnOrder="2">
         <Name dnOrder="0">drv_can_static.h</Name>
         <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default/framework/driver/can</Path>
         <Checksum dnOrder="2">43E26EF057A4F26A2EAEF7DE52E56731</Checksum>
       </Template>
+      <Template dnOrder="3">
+        <Name dnOrder="0">drv_adc_static.h</Name>
+        <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default/framework/driver/adc</Path>
+        <Checksum dnOrder="2">C85DB8F3875CB2F33261694330FCCB98</Checksum>
+      </Template>
+      <Template dnOrder="4">
+        <Name dnOrder="0">drv_adc_static.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/adc/src</Path>
+        <Checksum dnOrder="2">D67071F722D25146A4F252389EA1D3FC</Checksum>
+      </Template>
       <Template dnOrder="5">
-        <Name dnOrder="0">system_definitions.h</Name>
-        <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">411CA010A1A67D9735066C3F707B8652</Checksum>
-      </Template>
-      <Template dnOrder="6">
-        <Name dnOrder="0">system_exceptions.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">9836A04F3E98D3971DB91DF539160F34</Checksum>
-      </Template>
-      <Template dnOrder="7">
-        <Name dnOrder="0">sys_devcon.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
-        <Checksum dnOrder="2">54ADBD4A35BCA03C42C74182FCE41849</Checksum>
-      </Template>
-      <Template dnOrder="8">
-        <Name dnOrder="0">app.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app</Path>
-      </Template>
-      <Template dnOrder="9">
         <Name dnOrder="0">sys_devcon_local.h</Name>
         <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
         <Checksum dnOrder="2">B66F9B4DBD85DA7F9DE775E864E01395</Checksum>
       </Template>
-      <Template dnOrder="10">
+      <Template dnOrder="6">
         <Name dnOrder="0">drv_spi_tasks.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/spi/dynamic</Path>
         <Checksum dnOrder="2">B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
-      <Template dnOrder="11">
-        <Name dnOrder="0">sys_devcon_cache_pic32mz.S</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
-        <Checksum dnOrder="2">D0A9CCA1CA85BB1CE7364A5DE10CC07D</Checksum>
-      </Template>
-      <Template dnOrder="12">
+      <Template dnOrder="7">
         <Name dnOrder="0">sys_devcon.h</Name>
         <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default/framework/system/devcon</Path>
         <Checksum dnOrder="2">07580DCDEF89D9C79B062544109C5367</Checksum>
       </Template>
-      <Template dnOrder="13">
-        <Name dnOrder="0">sys_devcon_pic32mz.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
-        <Checksum dnOrder="2">D011F212E6410A0C92087C188E1F60AF</Checksum>
-      </Template>
-      <Template dnOrder="14">
+      <Template dnOrder="8">
         <Name dnOrder="0">drv_can_mapping.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/can/src</Path>
         <Checksum dnOrder="2">2B147795224B5A9A1995555189288D1A</Checksum>
       </Template>
-      <Template dnOrder="15">
-        <Name dnOrder="0">system_tasks.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">C2FDF6218CDD9CE0E51AFAC4ACBB5F79</Checksum>
-      </Template>
-      <Template dnOrder="16">
-        <Name dnOrder="0">system_config.h</Name>
-        <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">4BB5302F9519D345377820B6EBA550DE</Checksum>
-      </Template>
-      <Template dnOrder="17">
-        <Name dnOrder="0">app.h</Name>
-        <Path dnOrder="1">Header&amp;#160;Files/app</Path>
-      </Template>
-      <Template dnOrder="18">
+      <Template dnOrder="9">
         <Name dnOrder="0">drv_can_static.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/can/src</Path>
         <Checksum dnOrder="2">AF3AC4F88660CDA01517B6CAEBC832F7</Checksum>
       </Template>
-      <Template dnOrder="19">
+      <Template dnOrder="10">
         <Name dnOrder="0">system_interrupt.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
         <Checksum dnOrder="2">B2499F63B79770A163A489AFCDE99CFB</Checksum>
       </Template>
+      <Template dnOrder="11">
+        <Name dnOrder="0">drv_spi_api.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/spi/dynamic</Path>
+        <Checksum dnOrder="2">615D0B3998780D1680273302CCF44179</Checksum>
+      </Template>
+      <Template dnOrder="12">
+        <Name dnOrder="0">system_init.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
+        <Checksum dnOrder="2">1CB1BD38B77711F3B8E5B0960BD261CC</Checksum>
+      </Template>
+      <Template dnOrder="13">
+        <Name dnOrder="0">main.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app</Path>
+      </Template>
+      <Template dnOrder="14">
+        <Name dnOrder="0">system_definitions.h</Name>
+        <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
+        <Checksum dnOrder="2">004A9382425ABED518E0739150D3F84D</Checksum>
+      </Template>
+      <Template dnOrder="15">
+        <Name dnOrder="0">system_exceptions.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
+        <Checksum dnOrder="2">9836A04F3E98D3971DB91DF539160F34</Checksum>
+      </Template>
+      <Template dnOrder="16">
+        <Name dnOrder="0">sys_devcon.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
+        <Checksum dnOrder="2">54ADBD4A35BCA03C42C74182FCE41849</Checksum>
+      </Template>
+      <Template dnOrder="17">
+        <Name dnOrder="0">app.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app</Path>
+      </Template>
+      <Template dnOrder="18">
+        <Name dnOrder="0">sys_devcon_cache_pic32mz.S</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
+        <Checksum dnOrder="2">D0A9CCA1CA85BB1CE7364A5DE10CC07D</Checksum>
+      </Template>
+      <Template dnOrder="19">
+        <Name dnOrder="0">sys_devcon_pic32mz.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/devcon/src</Path>
+        <Checksum dnOrder="2">D011F212E6410A0C92087C188E1F60AF</Checksum>
+      </Template>
       <Template dnOrder="20">
+        <Name dnOrder="0">system_tasks.c</Name>
+        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
+        <Checksum dnOrder="2">C2FDF6218CDD9CE0E51AFAC4ACBB5F79</Checksum>
+      </Template>
+      <Template dnOrder="21">
+        <Name dnOrder="0">system_config.h</Name>
+        <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
+        <Checksum dnOrder="2">4BB5302F9519D345377820B6EBA550DE</Checksum>
+      </Template>
+      <Template dnOrder="22">
+        <Name dnOrder="0">app.h</Name>
+        <Path dnOrder="1">Header&amp;#160;Files/app</Path>
+      </Template>
+      <Template dnOrder="23">
         <Name dnOrder="0">drv_spi_master_ebm_tasks.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/spi/dynamic</Path>
         <Checksum dnOrder="2">DF2E896C1FA81F4B5056E3B22DD340B6</Checksum>
       </Template>
-      <Template dnOrder="21">
+      <Template dnOrder="24">
         <Name dnOrder="0">sys_clk_pic32mz.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/system/clk/src</Path>
         <Checksum dnOrder="2">CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
-      </Template>
-      <Template dnOrder="22">
-        <Name dnOrder="0">drv_spi_api.c</Name>
-        <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/spi/dynamic</Path>
-        <Checksum dnOrder="2">615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
     </Templates>
     <CompilerItems dnOrder="2">
