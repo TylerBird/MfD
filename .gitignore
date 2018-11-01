@@ -57,3 +57,4 @@ dkms.conf
 *.hconfig
 MfD/firmware/MfD.X/dist/
 MfD/firmware/MfD.X/nbproject/Package-default.bash
+MfD/firmware/MfD.X/nbproject/Makefile-genesis.properties
