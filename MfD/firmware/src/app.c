@@ -57,12 +57,17 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 //#include "ic.h"
 //#include "spi.h"
 //#include "usb.h"
-//#include "bsp_config.h"
 
 // *****************************************************************************
 // Section: Global Data Definitions
 // *****************************************************************************
 APP_DATA appData;
+
+// counter variables
+// TODO: check if specific int 32- or 16- or 8-bit are better
+int i;
+int j;
+
 
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -83,10 +88,20 @@ void APP_Initialize ( void )
     /* TODO: Initialize your application's state machine and other
      * parameters.
      */
+    
+    // Programming done LED
+    OnBoardLED_2On();
+    
+//    // Turn off Relais
+//    appData.b_relais1_state = Relais_nGate1Off();
+//    appData.b_relais2_state = Relais_nGate2Off();
+//    appData.b_relais3_state = Relais_nGate3Off();
+    
+    // start up paramters for counter variables
+    i = 0;
+    j = 0;
 }
 
-int i = 0;
-int j = 0;
 /******************************************************************************
   Function:
     void APP_Tasks ( void )
@@ -99,7 +114,7 @@ void APP_Tasks ( void )
     /* Check the application's current state. */
     switch ( appData.state )
     {
-        /* Application's initial state. */
+        // Application's initial state.
         case APP_STATE_INIT:
         {
 			printf("%c%s%c%s", 27, "[2J", 27,"[H"); //clearscreen!!!
@@ -110,44 +125,38 @@ void APP_Tasks ( void )
             printf("######################################\r\n");
             printf("Version \t%d.%d\n", (uint8_t)VERSION, ((uint16_t)(VERSION * 10)) % 10);
             printf("Build date \t%s - %s\n", __DATE__, __TIME__);
-            printf("APP: initialization started | ");
+            printf("APP: Initialization started | ");
 			
-            /* Programming done LED */
-            OnBoardLED_2On();
-            
             /* Init all components */
             ADC_Init();
-            //IC_Init();
+//            IC_Init();
 //            CAN_Init();
 //            SPI_TempSen_Init();
 //            SPI_KType_Init();
 //            USB_Initialize();
-            
-            /* Set or Reset Relais */
-//            appData.b_relais1_state = BSP_nRelais_En(BSP_Relais_nGate1, false);
-//            appData.b_relais2_state = BSP_nRelais_En(BSP_Relais_nGate2, false);
-//            appData.b_relais3_state = BSP_nRelais_En(BSP_Relais_nGate3, false);
             
             /* swap state */
             appData.state = APP_STATE_SERVICE_TASKS;
             break;
         }
 
+        // Application's service task.
         case APP_STATE_SERVICE_TASKS:
         {
             /* Play USB Task */
 //            USB_Task();
             //printf("USB task finished |");
             
-            /* Play ADC Task */
+            // Play ADC Task
+            //TODO: Initiate a Timer for triggering the read out cycle
             if (i > 500000)
             {
                 /* add tasks */
                 ADC_Task();
-                //CAN_Task();
+//                CAN_Task();
 //                SPI_KType_Task();
 //                SPI_TempSen_Task();
-                //IC_Task();
+//                IC_Task();
                                 
                 /* Control the print out on uart */
                 if (j !=0 )
@@ -156,7 +165,7 @@ void APP_Tasks ( void )
                 }
                 j++;
                 
-                /* Toggle LED for check program is running */
+                // LED toggle showing system is alive
                 OnBoardLED_2Toggle();
                 
                 /* Reset counter variable */
