@@ -261,18 +261,18 @@ void DRV_ADC_Initialize(void)
      PLIB_ADCHS_AnalogInputScanSelect
      (
           DRV_ADC_ID_1,
-          ADCHS_AN11
+          ADCHS_AN19
      );
      
      PLIB_ADCHS_AnalogInputModeSelect(
                DRV_ADC_ID_1,
-               ADCHS_AN11,
+               ADCHS_AN19,
                ADCHS_INPUT_MODE_SINGLE_ENDED_UNIPOLAR
                );               
      PLIB_ADCHS_AnalogInputScanSetup
      (
           DRV_ADC_ID_1, 
-          ADCHS_AN11, 
+          ADCHS_AN19, 
           ADCHS_SCAN_TRIGGER_SENSITIVE_EDGE,
           ADCHS_SCAN_TRIGGER_SOURCE_GLOBAL_SOFTWARE_EDGE
      );

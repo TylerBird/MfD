@@ -18,6 +18,7 @@
  * (Channel Instance 04) - ADCHS_AN3:  ADC_TempSen1
  * (Channel Instance 05) - ADC Channel 7
  * (Instance 00) - ADCHS_AN11: ADC_Gyro_X
+ * (Instance 00) - ADCHS_AN19: ADC_Gyro_X
  * (Instance 01) - ADCHS_AN12: ADC_Gyro_Y
  * (Instance 02) - ADCHS_AN13: ADC_Gyro_Z
  * (Instance 03) - ADCHS_AN15: ADC_AirSen1
@@ -108,39 +109,41 @@ typedef struct
     double d_AS_ioVoltage;
     double d_AS_res2;
     
-} ADC_DATA_1;
+} ADC_DATA;
+
+extern ADC_DATA adcData;
 
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* Section: Function prototypes                                                           */
 /* ************************************************************************** */
 /* ************************************************************************** */
-void ADC_Init(void);
-void ADC_Task(void);
+void initADC(void);
+void tastADC(void);
 
 /* Temperature Sensor - Oil, Water, etc. */
-double ADC_Read_TS(uint8_t);
-double ADC_Read_TS_Resistor(uint8_t);
+double getAdcTemperatureSensorValue(uint8_t);
+double getAdcTemperatureSensorResistorValue(uint8_t);
 
 /* Accelormeter */
-void ADC_Read_Gyro(void);
+void getAdcAccelerometerValues(void);
 
 /* Air Temperature */
-double ADC_Read_ATS(uint8_t);
-double ADC_Read_AS_Resistor(uint8_t);
+double getAdcAirTemperatureSensorValue(uint8_t);
+double getAdcAirTemperatureSensorResistorValue(uint8_t);
 
 /* Pressure Sensor */
-double ADC_Read_PS(uint8_t);
-double ADC_Read_PS_Voltage(uint8_t);
+double getAdcPressureSensorValue(uint8_t);
+double getAdcPressureSensorVoltageValue(uint8_t);
 
 /* Manifold pressure Sensor */
-double ADC_Read_MPS_Press(uint8_t);
-double ADC_Read_MPS_Voltage(uint8_t);
+double getAdcManifoldPressureSensorValue(uint8_t);
+double getAdcManifoldPressureSensorVoltageValue(uint8_t);
 
 
-double ADC_Read_3V3(void);
-double ADC_Read_5V0(void);
-double ADC_Read_Vin(void);
+double getAdc3V3(void);
+double getAdc5V0(void);
+double getAdcVin(void);
 #endif /* ADC_H */
 
 /* *****************************************************************************

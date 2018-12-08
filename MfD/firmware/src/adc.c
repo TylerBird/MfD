@@ -17,7 +17,8 @@
  * (Channel Instance 03) - ADCHS_AN2:  ADC_TempSen2
  * (Channel Instance 04) - ADCHS_AN3:  ADC_TempSen1
  * (Channel Instance 05) - ADC Channel 7
- * (Instance 00) - ADCHS_AN11: ADC_Gyro_X
+// * (Instance 00) - ADCHS_AN11: ADC_Gyro_X
+ * (Instance 00) - ADCHS_AN19: ADC_Gyro_X
  * (Instance 01) - ADCHS_AN12: ADC_Gyro_Y
  * (Instance 02) - ADCHS_AN13: ADC_Gyro_Z
  * (Instance 03) - ADCHS_AN15: ADC_AirSen1
@@ -57,12 +58,12 @@
 #define VCC_PS_MAX      5.34
 #define VCC_MPS_MAX     3.3
 
-ADC_DATA_1 adcData;
+ADC_DATA adcData;
 
 /* ************************************************************************** */
 // Section: Globle Functions                                                  */
 /* ************************************************************************** */
-void ADC_Init()
+void initADC()
 {
     /* Enable ADC */
     DRV_ADC0_Open();
@@ -74,10 +75,10 @@ void ADC_Init()
     /* swap state */
     adcData.state = ADC_STATE_INIT;
     
-    printf("ADC init finished |\n");
+    printf("initADC() done!\n");
 }
 
-void ADC_Task()
+void tastADC()
 {   
     switch ( adcData.state)
     {
@@ -91,27 +92,27 @@ void ADC_Task()
         case ADC_STATE_SERVICE_TASKS:
         {
             /* Read Voltage */
-            ADC_Read_Vin();
-            ADC_Read_5V0();
-            ADC_Read_3V3();
+            getAdcVin();
+            getAdc5V0();
+            getAdc3V3();
             
             /* Read Temperature Sensors */
-            ADC_Read_TS(ADC_TS1_idx);
-            ADC_Read_TS(ADC_TS2_idx);
-            ADC_Read_TS(ADC_TS3_idx);
-            ADC_Read_TS(ADC_TS4_idx);
+            getAdcTemperatureSensorValue(ADC_TS1_idx);
+            getAdcTemperatureSensorValue(ADC_TS2_idx);
+            getAdcTemperatureSensorValue(ADC_TS3_idx);
+            getAdcTemperatureSensorValue(ADC_TS4_idx);
             
             /* Read Gyro */
-            ADC_Read_Gyro();
+            getAdcAccelerometerValues();
             
             /* Read Air Temperature Sensors */
-            ADC_Read_ATS(ADC_AS1_idx);
-            ADC_Read_ATS(ADC_AS2_idx);
-            ADC_Read_ATS(ADC_AS3_idx);
+            getAdcAirTemperatureSensorValue(ADC_AS1_idx);
+            getAdcAirTemperatureSensorValue(ADC_AS2_idx);
+            getAdcAirTemperatureSensorValue(ADC_AS3_idx);
             
             /* Read Pressure Sensors */
-            ADC_Read_PS(ADC_PS1_idx);
-            ADC_Read_PS(ADC_PS2_idx);
+            getAdcPressureSensorValue(ADC_PS1_idx);
+            getAdcPressureSensorValue(ADC_PS2_idx);
             
             break;
         }
@@ -131,7 +132,7 @@ void ADC_Task()
 /* ************************************************************************** */
 // Section: Functions                                                         */
 /* ************************************************************************** */
-double ADC_Read_TS(uint8_t bufindex)
+double getAdcTemperatureSensorValue(uint8_t bufindex)
 {
     static double res1 = 100;   //100ohm
     
@@ -190,7 +191,7 @@ double ADC_Read_TS(uint8_t bufindex)
     return adcData.d_temperature;
 }
 
-double ADC_Read_TS_Resistor(uint8_t bufindex)
+double getAdcTemperatureSensorResistorValue(uint8_t bufindex)
 {
     static double res1 = 100;   //100ohm
     
@@ -223,7 +224,7 @@ double ADC_Read_TS_Resistor(uint8_t bufindex)
 }
 
 
-void ADC_Read_Gyro(void)
+void getAdcAccelerometerValues(void)
 {    
     /* Start ADC */
     DRV_ADC_Start();
@@ -231,7 +232,7 @@ void ADC_Read_Gyro(void)
     /* check if samples are availabe */
     while(!DRV_ADC_SamplesAvailable(ADCHS_AN12)){;}
     /* read availabe sample from ADC */
-    adcData.u16_gyro_x = DRV_ADC_SamplesRead(ADCHS_AN11);
+    adcData.u16_gyro_x = DRV_ADC_SamplesRead(ADCHS_AN19);
     adcData.u16_gyro_y = DRV_ADC_SamplesRead(ADCHS_AN12);
     adcData.u16_gyro_z = DRV_ADC_SamplesRead(ADCHS_AN13);
     
@@ -240,7 +241,7 @@ void ADC_Read_Gyro(void)
 }
 
 
-double ADC_Read_ATS(uint8_t bufindex)
+double getAdcAirTemperatureSensorValue(uint8_t bufindex)
 {
     static double res1 = 1000;  //1kohm
      
@@ -302,7 +303,7 @@ double ADC_Read_ATS(uint8_t bufindex)
     return adcData.d_temperature;
 }
 
-double ADC_Read_AS_Resistor(uint8_t bufindex)
+double getAdcAirTemperatureSensorResistorValue(uint8_t bufindex)
 {
     static double res1 = 1000;  //1kohm
      
@@ -334,7 +335,7 @@ double ADC_Read_AS_Resistor(uint8_t bufindex)
     return adcData.d_res2;
 }
 
-double ADC_Read_PS(uint8_t bufindex)
+double getAdcPressureSensorValue(uint8_t bufindex)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -378,7 +379,7 @@ double ADC_Read_PS(uint8_t bufindex)
     return adcData.d_psi;   
 }
 
-double ADC_Read_PS_Voltage(uint8_t bufindex)
+double getAdcPressureSensorVoltageValue(uint8_t bufindex)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -409,7 +410,7 @@ double ADC_Read_PS_Voltage(uint8_t bufindex)
 }
 
 
-double ADC_Read_MPS_Press(uint8_t bufindex)
+double getAdcManifoldPressureSensorValue(uint8_t bufindex)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -453,7 +454,7 @@ double ADC_Read_MPS_Press(uint8_t bufindex)
     return adcData.d_bar;
 }
 
-double ADC_Read_MPS_Voltage(uint8_t bufindex)
+double getAdcManifoldPressureSensorVoltageValue(uint8_t bufindex)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -477,7 +478,7 @@ double ADC_Read_MPS_Voltage(uint8_t bufindex)
 }
 
 
-double ADC_Read_3V3(void)
+double getAdc3V3(void)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -499,7 +500,7 @@ double ADC_Read_3V3(void)
 }
 
 
-double ADC_Read_5V0(void)
+double getAdc5V0(void)
 {
     /* Start ADC */
     DRV_ADC_Start();
@@ -522,7 +523,7 @@ double ADC_Read_5V0(void)
 }
 
 
-double ADC_Read_Vin(void)
+double getAdcVin(void)
 {
     /* Start ADC */
     DRV_ADC_Start();

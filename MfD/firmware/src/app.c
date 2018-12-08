@@ -55,8 +55,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "adc.h"
 //#include "can.h"
 //#include "ic.h"
-//#include "spi.h"
-//#include "usb.h"
+#include "spi.h"
+#include "usbHID.h"
 
 // *****************************************************************************
 // Section: Global Data Definitions
@@ -80,7 +80,7 @@ int j;
   Remarks:
     See prototype in app.h.
  */
-void APP_Initialize ( void )
+void initApp ( void )
 {
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
@@ -109,7 +109,7 @@ void APP_Initialize ( void )
   Remarks:
     See prototype in app.h.
  */
-void APP_Tasks ( void )
+void taskApp ( void )
 {
     /* Check the application's current state. */
     switch ( appData.state )
@@ -125,15 +125,15 @@ void APP_Tasks ( void )
             printf("######################################\r\n");
             printf("Version \t%d.%d\n", (uint8_t)VERSION, ((uint16_t)(VERSION * 10)) % 10);
             printf("Build date \t%s - %s\n", __DATE__, __TIME__);
-            printf("APP: Initialization started | ");
+            printf("APP: Initialization started:\n");
 			
             /* Init all components */
-            ADC_Init();
+            initADC();
 //            IC_Init();
 //            CAN_Init();
-//            SPI_TempSen_Init();
-//            SPI_KType_Init();
-//            USB_Initialize();
+            initSpiTemperatureSensor();
+            initSpiKtype();
+            initUSB();
             
             /* swap state */
             appData.state = APP_STATE_SERVICE_TASKS;
@@ -144,18 +144,18 @@ void APP_Tasks ( void )
         case APP_STATE_SERVICE_TASKS:
         {
             /* Play USB Task */
-//            USB_Task();
-            //printf("USB task finished |");
+            taskUSB();
+//            printf("USB task finished |");
             
             // Play ADC Task
             //TODO: Initiate a Timer for triggering the read out cycle
             if (i > 500000)
             {
                 /* add tasks */
-                ADC_Task();
+                tastADC();
 //                CAN_Task();
-//                SPI_KType_Task();
-//                SPI_TempSen_Task();
+                taskSpiKtype();
+                taskSpiTemperatureSensor();
 //                IC_Task();
                                 
                 /* Control the print out on uart */
@@ -180,6 +180,7 @@ void APP_Tasks ( void )
         default:
         {
             /* TODO: Handle error in application's state machine. */
+            printf("Something went wrong!!\n");
             break;
         }
     }

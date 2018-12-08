@@ -96,6 +96,11 @@ void __ISR(_UART2_FAULT_VECTOR, ipl1AUTO) _IntHandlerDrvUsartErrorInstance0(void
  
  
 
+void __ISR(_TIMER_1_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
+{
+    DRV_TMR_Tasks(sysObj.drvTmr0);
+}
+ 
 void __ISR(_SPI1_RX_VECTOR, ipl1AUTO) _IntHandlerSPIRxInstance0(void)
 {
     DRV_SPI_Tasks(sysObj.spiObjectIdx0);
@@ -124,6 +129,15 @@ void __ISR(_SPI2_FAULT_VECTOR, ipl1AUTO) _IntHandlerSPIFaultInstance1(void)
 
 
 
+void __ISR(_USB_VECTOR, ipl4AUTO) _IntHandlerUSBInstance0(void)
+{
+    DRV_USBHS_Tasks_ISR(sysObj.drvUSBObject);
+}
+
+void __ISR ( _USB_DMA_VECTOR,ipl4AUTO) _IntHandlerUSBInstance0_USBDMA ( void )
+{
+    DRV_USBHS_Tasks_ISR_USBDMA(sysObj.drvUSBObject);
+}
 /*******************************************************************************
  End of File
 */

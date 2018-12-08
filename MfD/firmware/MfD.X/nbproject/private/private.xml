@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/system_config/default/system_init.c</file>
             <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/app.c</file>
+            <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/spi.c</file>
+            <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/usbHid.h</file>
             <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/adc.c</file>
             <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/adc.h</file>
-            <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/system_config/default/system_config.h</file>
+            <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/usbHid.c</file>
             <file>file:/D:/Microchip/harmony/v2_06/apps/MfD/MfD/firmware/src/app.h</file>
         </group>
     </open-files>
