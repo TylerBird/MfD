@@ -62,10 +62,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 #define VERSION 1.0f
 
+
+
 // App relais index numbers
-//#define APP_REL1_idx    0
-//#define APP_REL2_idx    1
-//#define APP_REL3_idx    2
+#define APP_REL1_idx    0
+#define APP_REL2_idx    1
+#define APP_REL3_idx    2
 
 // *****************************************************************************
 /* Application states */
@@ -89,16 +91,18 @@ typedef struct
     /* The application's current state */
     APP_STATES state;
 
-//    bool b_relais1_state;
-//    bool b_relais2_state;
-//    bool b_relais3_state;
+    bool b_relais1_state;
+    bool b_relais2_state;
+    bool b_relais3_state;
 } APP_DATA;
+
+extern APP_DATA appData;
 
 // *****************************************************************************
 /* Prototype functions */
 // *****************************************************************************
-void APP_Initialize ( void );
-void APP_Tasks( void );
+void initApp ( void );
+void taskApp( void );
 
 
 #endif /* _APP_H */

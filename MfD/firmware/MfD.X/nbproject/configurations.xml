@@ -31,6 +31,8 @@
         </logicalFolder>
         <itemPath>../src/app.h</itemPath>
         <itemPath>../src/adc.h</itemPath>
+        <itemPath>../src/usbHid.h</itemPath>
+        <itemPath>../src/spi.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
@@ -49,13 +51,33 @@
             <itemPath>../../../../../framework/driver/spi/drv_spi.h</itemPath>
             <itemPath>../../../../../framework/driver/spi/drv_spi_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="usart" projectFiles="true">
+          <logicalFolder name="f3" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h</itemPath>
+              <itemPath>../../../../../framework/driver/tmr/src/drv_tmr_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
+            <itemPath>../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
+            <itemPath>../../../../../framework/driver/tmr/tmr_definitions_pic32m.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="usart" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/usart/src/drv_usart_variant_mapping.h</itemPath>
               <itemPath>../../../../../framework/driver/usart/src/drv_usart_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/usart/drv_usart.h</itemPath>
             <itemPath>../../../../../framework/driver/usart/drv_usart_definitions.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f5" displayName="usb" projectFiles="true">
+            <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
+              <logicalFolder name="f1" displayName="src" projectFiles="true">
+                <itemPath>../../../../../framework/driver/usb/usbhs/src/drv_usbhs_local.h</itemPath>
+                <itemPath>../../../../../framework/driver/usb/usbhs/src/drv_usbhs_variant_mapping.h</itemPath>
+              </logicalFolder>
+              <itemPath>../../../../../framework/driver/usb/usbhs/drv_usbhs.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../framework/driver/usb/drv_usb.h</itemPath>
           </logicalFolder>
           <itemPath>../../../../../framework/driver/driver.h</itemPath>
           <itemPath>../../../../../framework/driver/driver_common.h</itemPath>
@@ -95,7 +117,32 @@
             <itemPath>../../../../../framework/system/ports/sys_ports.h</itemPath>
             <itemPath>../../../../../framework/system/ports/sys_ports_definitions.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="f7" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../framework/system/tmr/src/sys_tmr_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../framework/system/tmr/sys_tmr.h</itemPath>
+          </logicalFolder>
           <itemPath>../../../../../framework/system/system.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f4" displayName="usb" projectFiles="true">
+          <logicalFolder name="f1" displayName="src" projectFiles="true">
+            <itemPath>../../../../../framework/usb/src/usb_device_function_driver.h</itemPath>
+            <itemPath>../../../../../framework/usb/src/usb_device_local.h</itemPath>
+            <itemPath>../../../../../framework/usb/src/usb_device_mapping.h</itemPath>
+            <itemPath>../../../../../framework/usb/src/usb_device_hid_local.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../framework/usb/usb_common.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_chapter_9.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_hub.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_host_hub.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_host_client_driver.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_host.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_host_hub_interface.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_billboard.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_hid.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device_hid.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -160,6 +207,8 @@
         <itemPath>../src/app.c</itemPath>
         <itemPath>../src/main.c</itemPath>
         <itemPath>../src/adc.c</itemPath>
+        <itemPath>../src/usbHid.c</itemPath>
+        <itemPath>../src/spi.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
@@ -171,11 +220,28 @@
               <itemPath>../../../../../framework/driver/spi/src/drv_spi_sys_queue_fifo.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="usart" projectFiles="true">
+          <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
+                <itemPath>../../../../../framework/driver/tmr/src/dynamic/drv_tmr.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="usart" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/usart/src/dynamic/drv_usart.c</itemPath>
                 <itemPath>../../../../../framework/driver/usart/src/dynamic/drv_usart_byte_model.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="usb" projectFiles="true">
+            <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
+              <logicalFolder name="f1" displayName="src" projectFiles="true">
+                <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
+                  <itemPath>../../../../../framework/driver/usb/usbhs/src/dynamic/drv_usbhs.c</itemPath>
+                  <itemPath>../../../../../framework/driver/usb/usbhs/src/dynamic/drv_usbhs_device.c</itemPath>
+                </logicalFolder>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -184,6 +250,19 @@
           <logicalFolder name="f1" displayName="int" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../framework/system/tmr/src/sys_tmr.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f3" displayName="usb" projectFiles="true">
+          <logicalFolder name="f1" displayName="src" projectFiles="true">
+            <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
+              <itemPath>../../../../../framework/usb/src/dynamic/usb_device.c</itemPath>
+              <itemPath>../../../../../framework/usb/src/dynamic/usb_device_hid.c</itemPath>
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
@@ -372,6 +451,7 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

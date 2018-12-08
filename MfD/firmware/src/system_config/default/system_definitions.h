@@ -53,11 +53,16 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/devcon/sys_devcon.h"
 #include "system/clk/sys_clk.h"
 #include "system/int/sys_int.h"
+#include "system/tmr/sys_tmr.h"
 #include "driver/adc/drv_adc_static.h"
+#include "driver/tmr/drv_tmr.h"
 #include "driver/can/drv_can_static.h"
 #include "driver/usart/drv_usart.h"
 #include "system/ports/sys_ports.h"
 #include "driver/spi/drv_spi.h"
+#include "driver/usb/usbhs/drv_usbhs.h"
+#include "usb/usb_device.h"
+#include "usb/usb_device_hid.h"
 #include "app.h"
 
 
@@ -92,6 +97,8 @@ extern "C" {
 
 typedef struct
 {
+    SYS_MODULE_OBJ  sysTmr;
+    SYS_MODULE_OBJ  drvTmr0;
 
     SYS_MODULE_OBJ  drvUsart0;
 
@@ -100,6 +107,11 @@ typedef struct
     
     /*** SPI Object for Index 1 ***/
     SYS_MODULE_OBJ				spiObjectIdx1;
+    SYS_MODULE_OBJ  drvUSBObject;
+    
+    SYS_MODULE_OBJ  usbDevObject0;
+
+
 
 } SYSTEM_OBJECTS;
 
@@ -110,6 +122,7 @@ typedef struct
 // *****************************************************************************
 
 extern SYSTEM_OBJECTS sysObj;
+
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus

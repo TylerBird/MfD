@@ -72,13 +72,22 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 void SYS_Tasks ( void )
 {
     /* Maintain system services */
+    /* SYS_TMR Device layer tasks routine */ 
+    SYS_TMR_Tasks(sysObj.sysTmr);
 
     /* Maintain Device Drivers */
 
     /* Maintain Middleware & Other Libraries */
 
+    /* USB HS Driver Task Routine */ 
+     DRV_USBHS_Tasks(sysObj.drvUSBObject);
+     
+ 
+    /* USB Device layer tasks routine */ 
+    USB_DEVICE_Tasks(sysObj.usbDevObject0);
+
     /* Maintain the application's state machine. */
-    APP_Tasks();
+    taskApp();
 }
 
 
