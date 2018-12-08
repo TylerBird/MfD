@@ -119,7 +119,7 @@ extern ADC_DATA adcData;
 /* ************************************************************************** */
 /* ************************************************************************** */
 void initADC(void);
-void tastADC(void);
+void taskADC(void);
 
 /* Temperature Sensor - Oil, Water, etc. */
 double getAdcTemperatureSensorValue(uint8_t);

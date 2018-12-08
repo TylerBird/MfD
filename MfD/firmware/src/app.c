@@ -152,7 +152,7 @@ void taskApp ( void )
             if (i > 500000)
             {
                 /* add tasks */
-                tastADC();
+                taskADC();
 //                CAN_Task();
                 taskSpiKtype();
                 taskSpiTemperatureSensor();

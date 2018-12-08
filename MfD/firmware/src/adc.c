@@ -78,7 +78,7 @@ void initADC()
     printf("initADC() done!\n");
 }
 
-void tastADC()
+void taskADC()
 {   
     switch ( adcData.state)
     {
